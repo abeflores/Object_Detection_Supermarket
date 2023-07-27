@@ -4,7 +4,7 @@ In a nutshell, this project is an API service that is backed by a Yolov5 model t
 
 ## Project Architecture
 
-The architecture of the project consists of three different services, each of them in a different docker container: **ML Service** where Yolov5 model is based, **API** where the API service is based and finally **REDIS** to conect the previous services. 
+The architecture of the project consists of three different services, each of them in a different docker container: **ML Service** where Yolov5 model is based, **API** where the API service is based, and finally **REDIS** to connect the previous services. 
 
 ![Project Architecture](/utils/imgs/Project_arch.png)
 
@@ -16,21 +16,21 @@ After downloading this repository, simply run:
 
 The three images will be created and their containers will be up.
 
-There are two ways to run the application, as follow:
+There are two ways to run the application, as follows:
 
 ### Front-End endpoint
 
-This endpoint takes an image and returned it shaded with product and missing product (green and red respectively).
+This endpoint takes an image and returned it shaded with the product and missing product (green and red respectively).
 
 ![Project Architecture](/utils/imgs/Front-end.png)
 
-Valid Token: secret-token-5-gaston
+Valid Token: secret-token-1-abelardo
 
 ![Project Architecture](/utils/imgs/Front-end-1.png)
 
 ### Integration-type endpoint
 
-This endpoint takes an image and return the bounding boxes coordinates, the class (product -> 0 and no product -> 1) and the user. 
+This endpoint takes an image and returns the bounding boxes coordinates, the class (product -> 0 and no product -> 1) and the user. 
 
 ![Project Architecture](/utils/imgs/Endpoint-back-0.png)
 ![Project Architecture](/utils/imgs/Endpoint-back-1.png)
@@ -64,9 +64,9 @@ To run the model container
 To run train script
 >python train.py --data SKU-110K.yaml --cfg yolov5n.yaml --weights yolov5n.pt --batch-size 16 --epochs 30 --device 0
 
-This will train the model (Yolov5 nano) with the SKU-110K dataset (it will download it if necessary). The only class in this dataset is product, therefore, the model only will learn to detect products.  
-To teach the model how to detect missing products, labeling hundred of images needs to be done. As a result a new dataset will be created and the yaml file for data will change (2 classes has to be defined in it).  
-In utils folder there are several scripts to help in that process. To create a subset of data to do the labeling, to merge the label for the two classes, etc.
+This will train the model (Yolov5 nano) with the SKU-110K dataset (it will download it if necessary). The only class in this dataset is the product, therefore, the model only will learn to detect products.  
+To teach the model how to detect missing products, labeling hundred of images needs to be done. As a result, a new dataset will be created and the yaml file for data will change (2 classes have to be defined in it).  
+In the utils folder, there are several scripts to help in that process. To create a subset of data to do the labeling, merge the label for the two classes, etc.
 
 ## Notebooks
 
@@ -76,9 +76,9 @@ There are 4 notebooks.
 
 2. **Evaluate:** Evaluation of the trained model with 1 class (product). 
 
-3. **Evaluate_2_classes:** Evaluation of the trained model with 2 classes (product and missing-product). 
+3. **Evaluate_2_classes:** Evaluation of the trained model with 2 classes (product and missing product). 
 
-4. **Labels_Checker:** Assesment of the new class labels. 
+4. **Labels_Checker:** Assessment of the new class labels. 
 
 
 
